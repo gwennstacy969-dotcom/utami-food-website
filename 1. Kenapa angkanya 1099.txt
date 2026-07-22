@@ -1,0 +1,105 @@
+1. Kenapa angkanya 1099?
+Angka 1099 itu adalah port default (bawaan standar) dari Java yang memang dikhususkan untuk layanan RMI Registry. Ibaratnya, udah jadi kesepakatan internasional kalau "meja resepsionis RMI" itu standarnya ada di ruangan nomor 1099.  
+
+2. Kalau angkanya diubah, bisa nggak?
+Bisa banget! Tapi ada aturan mainnya:
+
+Karena 1099 itu port default, kalau lu pakai angka ini di Server, si Client pas mau konek nggak perlu repot-repot nulis angkanya. Client cukup nulis nama host dan layanannya aja:
+Naming.lookup("//localhost/TaskManager"); (Java RMI akan otomatis nyari ke port 1099 di balik layar).  
+
+Tapi, kalau di Server angkanya lu ubah (misalnya jadi LocateRegistry.createRegistry(8888);), maka di Client lu wajib ngasih tau rute port yang baru. Kodenya harus diubah jadi:
+Naming.lookup("//localhost:8888/TaskManager");
+
+Kalau di Server angkanya lu ubah tapi di Client lupa lu tambahin, hasilnya bakal error Connection refused kayak pas lu ngerjain Socket tadi, karena si Client muter-muter nyari resepsionis di port 1099 padahal udah lu pindah ke 8888.
+
+3. Bedanya sama port Socket (Topik 1) apa?
+Di Socket, port (misal 5000) itu adalah pintu langsung buat ngobrol dan tukeran data sama program Server lu.
+
+Di RMI, port 1099 itu cuma pintu buat nanya ke Registry. Client nanya, "Eh, layanan TaskManager alamatnya di mana ya?". Setelah Registry di port 1099 ngasih tau lokasinya (ngasih Stub), komunikasi selanjutnya udah diurusin otomatis sama Java di belakang layar.
+
+Jadi saran gw buat tugas praktikum ini, biarin aja angkanya tetep 1099 biar kode Client lu kelihatan bersih dan nggak perlu nulis port manual.
+
+Gimana we, masuk akal kan kenapa harus ada 1099 di situ?
+
+
+
+kakulator
+
+Penjelasan Apa yang Kamu Buat:
+Arsitektur Terdistribusi: Meskipun kodenya dijalankan di satu laptop, secara logika kamu sedang meminta "komputer lain" (Server) untuk melakukan perhitungan berat, dan hasilnya dikirim balik ke kamu (Client).
+
+Remote Exception: Karena komunikasi lewat jaringan itu rawan gangguan (misal kabel putus atau server mati), setiap fungsi wajib dibungkus dengan RemoteException untuk menjaga stabilitas program.
+
+Registry Port 1099: Kamu menggunakan port standar RMI sebagai tempat "pendaftaran" layanan kalkulator kamu.
+
+extends Remote: Menandakan kalau fungsi-fungsi di sini bisa dipanggil dari jarak jauh (komputer lain).
+
+double add(...), subtract(...), dll: Kita daftarin operasi matematika dasar.
+
+throws RemoteException: Wajib ada karena setiap panggilan lewat jaringan punya risiko error (misal koneksi putus).
+
+
+extends UnicastRemoteObject: Ini supaya objek kalkulator lu bisa "eksis" dan didengar di jaringan RMI.
+
+
+if (b == 0) {
+    throw new RemoteException("Division by zero");
+} (Kenapa pakai ini? Karena dalam matematika, angka nggak bisa dibagi nol. Kalau lu nggak kasih proteksi ini, server lu bisa crash atau ngirim hasil yang nggak jelas ke client.)
+
+
+CalculatorClient.java (Pengguna)
+Client ini yang bakal "manfaatin" tenaga server.
+
+Naming.lookup("//localhost/CalculatorService"): Client nanya ke Registry, "Ada nggak layanan namanya CalculatorService?". Kalau ada, Client dapet "remote control" (Stub) buat manggil fungsi di Server.
+
+stub.add(10, 5): Lu manggil fungsi add di sini, tapi sebenarnya yang nambahin angka itu adalah CPU di komputer Server.
+
+Kenapa Studi Kasus ini Penting? (Bahan Jawaban Dosen)
+Distributed Computing: Lu belajar gimana membagi beban kerja. Client yang ringan, Server yang berat.
+
+Error Handling: Lu belajar menangani exception yang spesifik (bagi nol) dan exception jaringan (RemoteException).
+
+Data Type: Kita pakai double supaya kalkulatornya bisa ngitung angka desimal (koma), bukan cuma angka bulat (integer).
+
+
+
+
+1. FoodOrderInterface.java (Kontrak)
+Ini adalah file yang mendefinisikan "apa saja" yang bisa dilakukan oleh sistem.
+
+extends Remote: Syarat mutlak dari Java agar interface ini bisa diakses dari komputer lain melalui jaringan.
+
+void placeOrder(String order): Deklarasi fungsi untuk mengirim pesanan (berupa teks nama makanan) ke server.
+
+List<String> viewOrders(): Deklarasi fungsi untuk meminta daftar pesanan yang sudah terkumpul di server.
+
+throws RemoteException: Wajib ada di setiap fungsi karena komunikasi jaringan bisa saja error (misal: kabel putus atau server mati).
+
+2. FoodOrderImplementation.java (Logika & Penyimpanan)
+Ini adalah "otak" yang sebenarnya, tempat data diproses dan disimpan.
+
+private List<String> orders: Ini adalah variabel tempat penyimpanan data pesanan. Datanya disimpan di RAM server (Stateful).
+
+super(): Memanggil constructor dari UnicastRemoteObject agar objek ini siap "mendengarkan" koneksi dari jaringan.
+
+orders.add(order): Perintah untuk memasukkan teks pesanan baru ke dalam list orders.
+
+return new ArrayList<>(orders): Mengirimkan salinan data pesanan ke Client. Kita bikin objek new ArrayList agar data aslinya di server tetap aman dan tidak diacak-acak oleh client.
+
+3. FoodOrderServer.java (Penyedia Layanan)
+Tugasnya adalah menghidupkan sistem dan mendaftarkannya ke "buku telepon" RMI.
+
+LocateRegistry.createRegistry(1099): Membuka jalur komunikasi di port standar RMI, yaitu 1099.
+
+FoodOrderImplementation obj = new ...: Membuat instance/objek nyata dari si "tukang hitung" tadi.
+
+Naming.rebind("//localhost/FoodOrderService", obj): Mendaftarkan objek tersebut ke Registry dengan nama "FoodOrderService". Ini memudahkan Client untuk mencari layanan lu pakai nama, bukan pakai alamat memori yang ribet.
+
+4. FoodOrderClient.java (Pengguna)
+Ini adalah aplikasi yang lu jalankan untuk berinteraksi dengan server.
+
+Naming.lookup("//localhost/FoodOrderService"): Client bertanya ke Registry: "Eh, ada nggak layanan namanya FoodOrderService?". Jika ada, Client akan mendapatkan Stub (remote control).
+
+stub.placeOrder("Pizza"): Client menekan "tombol" pesan makanan. Meskipun diketik di client, yang nambahin data ke list adalah komputer server.
+
+List<String> orders = stub.viewOrders(): Client meminta data terbaru dari server untuk ditampilkan di layar terminal lu.

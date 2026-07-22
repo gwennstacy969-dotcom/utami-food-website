@@ -1,0 +1,290 @@
+Created At: 2026-07-22T14:06:13Z
+Completed At: 2026-07-22T14:06:13Z
+File Path: `file:///e:/gabut/index.html`
+Total Lines: 821
+Total Bytes: 54352
+Showing lines 1 to 100
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: <!DOCTYPE html>
+2: <html lang="en">
+3: 
+4: <head>
+5:     <meta charset="utf-8">
+6:     <title>Utami Food</title>
+7:     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+8:     <meta content="" name="keywords">
+9:     <meta content="" name="description">
+10: 
+11:     <!-- Favicon -->
+12:     <link href="img/favicon.ico" rel="icon">
+13: 
+14:     <!-- Google Web Fonts -->
+15:     <link rel="preconnect" href="https://fonts.googleapis.com">
+16:     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+17:     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+18: 
+19:     <!-- Icon Font Stylesheet -->
+20:     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+21:     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+22: 
+23:     <!-- Libraries Stylesheet -->
+24:     <link href="lib/animate/animate.min.css" rel="stylesheet">
+25:     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+26:     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+27: 
+28:     <!-- Customized Bootstrap Stylesheet -->
+29:     <link href="css/bootstrap.min.css" rel="stylesheet">
+30: 
+31:     <!-- Template Stylesheet -->
+32:     <link href="css/style.css" rel="stylesheet">
+33: </head>
+34: 
+35: <body>
+36:     <div class="container-xxl bg-white p-0">
+37:         <!-- Spinner Start -->
+38:         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+39:             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+40:                 <span class="sr-only">Loading...</span>
+41:             </div>
+42:         </div>
+43:         <!-- Spinner End -->
+44: 
+45: 
+46:         <!-- Navbar & Hero Start -->
+47:         <div class="container-xxl position-relative p-0">
+48:             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+49:                 <a href="" class="navbar-brand p-0">
+50:                     <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Utami Food</h1>
+51:                     <!-- <img src="img/logo.png" alt="Logo"> -->
+52:                 </a>
+53:                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+54:                     <span class="fa fa-bars"></span>
+55:                 </button>
+56:                 <div class="collapse navbar-collapse" id="navbarCollapse">
+57:                     <div class="navbar-nav ms-auto py-0 pe-4">
+58:                         <a href="index.html" class="nav-item nav-link active">Home</a>
+59:                         <a href="about.html" class="nav-item nav-link">Tentang</a>
+60:                         <a href="service.html" class="nav-item nav-link">Layanan</a>
+61:                         <div class="nav-item dropdown">
+62:                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman</a>
+63:                             <div class="dropdown-menu m-0">
+64:                                 <a href="booking.html" class="dropdown-item">Pesan</a>
+65:                                 <a href="team.html" class="dropdown-item">My Team</a>
+66:                                 <a href="testimonial.html" class="dropdown-item">Testimoni</a>
+67:                             </div>
+68:                         </div>
+69:                         <a href="contact.html" class="nav-item nav-link">Kontak</a>
+70:                     </div>
+71:                     <a href="" class="btn btn-primary py-2 px-4">Menu</a>
+72:                 </div>
+73:             </nav>
+74: 
+75:             <div class="container-xxl py-5 bg-dark hero-header mb-5">
+76:                 <div class="container my-5 py-5">
+77:                     <div class="row align-items-center g-5">
+78:                         <div class="col-lg-6 text-center text-lg-start">
+79:                             <h1 class="display-3 text-white animated slideInLeft">Nikmati Setiap Gigitan<br>Hadirkan Kenikmatan</h1>
+80:                             <p class="text-white animated slideInLeft mb-4 pb-2">Lapar tapi bingung mau makan apa? Jangan khawatir! Kami siap menyajikan makanan lezat dengan porsi pas, rasa juara, dan harga bersahabat. Dijamin bikin ketagihan di setiap gigitan!</p>
+81:                             <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Menu</a>
+82:                         </div>
+83:                         <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+84:                             <img class="img-fluid" src="img/hero.png" alt="">
+85:                         </div>
+86:                     </div>
+87:                 </div>
+88:             </div>
+89:         </div>
+90:         <!-- Navbar & Hero End -->
+91: 
+92: 
+93:         <!-- Service Start -->
+94:         <div class="container-xxl py-5">
+95:             <div class="container">
+96:                 <div class="row g-4">
+97:                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+98:                         <div class="service-item rounded pt-3">
+99:                             <div class="p-4">
+100:                                 <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+---
+Created At: 2026-07-22T14:21:13Z
+Completed At: 2026-07-22T14:21:13Z
+File Path: `file:///e:/gabut/index.html`
+Total Lines: 274
+Total Bytes: 16122
+Showing lines 1 to 150
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: <!DOCTYPE html>
+2: <html lang="en">
+3: 
+4: <head>
+5:     <meta charset="utf-8">
+6:     <title>Utami Food</title>
+7:     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+8:     <meta content="" name="keywords">
+9:     <meta content="" name="description">
+10: 
+11:     <!-- Favicon -->
+12:     <link href="img/favicon.ico" rel="icon">
+13: 
+14:     <!-- Google Web Fonts -->
+15:     <link rel="preconnect" href="https://fonts.googleapis.com">
+16:     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+17:     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+18: 
+19:     <!-- Icon Font Stylesheet -->
+20:     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+21:     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+22: 
+23:     <!-- Libraries Stylesheet -->
+24:     <link href="lib/animate/animate.min.css" rel="stylesheet">
+25:     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+26:     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+27: 
+28:     <!-- Customized Bootstrap Stylesheet -->
+29:     <link href="css/bootstrap.min.css" rel="stylesheet">
+30: 
+31:     <!-- Template Stylesheet -->
+32:     <link href="css/style.css" rel="stylesheet">
+33: </head>
+34: 
+35: <body>
+36:     <div class="container-xxl bg-white p-0">
+37:         <!-- Spinner Start -->
+38:         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+39:             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+40:                 <span class="sr-only">Loading...</span>
+41:             </div>
+42:         </div>
+43:         <!-- Spinner End -->
+44: 
+45: 
+46:         <!-- Navbar & Hero Start -->
+47:         <div class="container-xxl position-relative p-0">
+48:             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+49:                 <a href="" class="navbar-brand p-0">
+50:                     <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Utami Food</h1>
+51:                     <!-- <img src="img/logo.png" alt="Logo"> -->
+52:                 </a>
+53:                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+54:                     <span class="fa fa-bars"></span>
+55:                 </button>
+56:                 <div class="collapse navbar-collapse" id="navbarCollapse">
+57:                     <div class="navbar-nav ms-auto py-0 pe-4">
+58:                         <a href="index.html" class="nav-item nav-link active">Home</a>
+59:                         <a href="about.html" class="nav-item nav-link">Tentang</a>
+60:                         <a href="service.html" class="nav-item nav-link">Layanan</a>
+61:                         <div class="nav-item dropdown">
+62:                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman</a>
+63:                             <div class="dropdown-menu m-0">
+64:                                 <a href="booking.html" class="dropdown-item">Pesan</a>
+65:                                 <a href="team.html" class="dropdown-item">My Team</a>
+66:                                 <a href="testimonial.html" class="dropdown-item">Testimoni</a>
+67:                             </div>
+68:                         </div>
+69:                         <a href="contact.html" class="nav-item nav-link">Kontak</a>
+70:                     </div>
+71:                     <a href="" class="btn btn-primary py-2 px-4">Menu</a>
+72:                 </div>
+73:             </nav>
+74: 
+75:             <div class="container-xxl py-5 bg-dark hero-header mb-5">
+76:                 <div class="container my-5 py-5">
+77:                     <div class="row align-items-center g-5">
+78:                         <div class="col-lg-6 text-center text-lg-start">
+79:                             <h1 class="display-3 text-white animated slideInLeft">Nikmati Setiap Gigitan<br>Hadirkan Kenikmatan</h1>
+80:                             <p class="text-white animated slideInLeft mb-4 pb-2">Lapar tapi bingung mau makan apa? Jangan khawatir! Kami siap menyajikan makanan lezat dengan porsi pas, rasa juara, dan harga bersahabat. Dijamin bikin ketagihan di setiap gigitan!</p>
+81:                             <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Menu</a>
+82:                         </div>
+83:                         <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+84:                             <img class="img-fluid" src="img/hero.png" alt="">
+85:                         </div>
+86:                     </div>
+87:                 </div>
+88:             </div>
+89:         </div>
+90:         <!-- Navbar & Hero End -->
+91: 
+92: 
+93:         <!-- Service Start -->
+94:         <div class="container-xxl py-5">
+95:             <div class="container">
+96:                 <div class="row g-4 justify-content-center">
+97:                     <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+98:                         <div class="team-item text-center rounded overflow-hidden">
+99:                             <div class="rounded-circle overflow-hidden m-4">
+100:                                 <img class="img-fluid" src="img/team-1.jpg" alt="">
+101:                             </div>
+102:                             <h5 class="mb-0">Utami</h5>
+103:                             <small>Master Chef</small>
+104:                             <div class="d-flex justify-content-center mt-3">
+105:                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+106:                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+107:                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+108:                             </div>
+109:                         </div>
+110:                     </div>
+111:                     <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+112:                         <div class="team-item text-center rounded overflow-hidden">
+113:                             <div class="rounded-circle overflow-hidden m-4">
+114:                                 <img class="img-fluid" src="img/team-2.jpg" alt="">
+115:                             </div>
+116:                             <h5 class="mb-0">Monik</h5>
+117:                             <small>Master Chef</small>
+118:                             <div class="d-flex justify-content-center mt-3">
+119:                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+120:                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+121:                                 <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+122:                             </div>
+123:                         </div>
+124:                     </div>
+125:                 </div>
+126:             </div>
+127:         </div>
+128:         <!-- Team End -->
+129: 
+130: 
+131:         <!-- Testimonial Start -->
+132:         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+133:             <div class="container">
+134:                 <div class="text-center">
+135:                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
+136:                     <h1 class="mb-5">Apa Kata Pelanggan!!!</h1>
+137:                 </div>
+138:                 <div class="owl-carousel testimonial-carousel">
+139:                     <div class="testimonial-item bg-transparent border rounded p-4">
+140:                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+141:                         <p>Makanannya enak banget, bumbu nasi bakarnya meresap sempurna. Pasti bakal balik lagi pesen di sini!</p>
+142:                         <div class="d-flex align-items-center">
+143:                             <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
+144:                             <div class="ps-3">
+145:                                 <h5 class="mb-1">Pelanggan Setia</h5>
+146:                                 <small>Pecinta Kuliner</small>
+147:                             </div>
+148:                         </div>
+149:                     </div>
+150:                     <div class="testimonial-item bg-transparent border rounded p-4">
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
+
+---
+Created At: 2026-07-22T14:27:18Z
+Tool is running as a background task with task id: 15d0ec5c-b814-422f-9ec3-a57736d1d917/task-125
+Task Description: node -e "
+const fs = require('fs');
+const path = 'C:/Users/ASUS/.gemini/antigravity-ide/brain/15d0ec5c-b814-422f-9ec3-a57736d1d917/.system_generated/logs/transcript_full.jsonl';
+const lines = fs.readFileSync(path, 'utf8').split('\n');
+
+for (let line of lines) {
+    if (!line) continue;
+    try {
+        const obj = JSON.parse(line);
+        if (obj.content && obj.content.includes('<!DOCTYPE html>') && obj.content.includes('Utami Food')) {
+            fs.appendFileSync('dump.txt', obj.content + '\n---\n');
+        }
+    } catch(e) {}
+}
+console.log('Dumped tool outputs.');
+"
+Task logs are available at: file:///C:/Users/ASUS/.gemini/antigravity-ide/brain/15d0ec5c-b814-422f-9ec3-a57736d1d917/.system_generated/tasks/task-125.log
+---
