@@ -81,7 +81,6 @@
         $('.btn-play').click(function () {
             $videoSrc = $(this).data("src");
         });
-        console.log($videoSrc);
 
         $('#videoModal').on('shown.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
@@ -114,6 +113,32 @@
             }
         }
     });
+
+
+    // Dynamic Copyright Year
+    $(document).ready(function () {
+        var currentYear = new Date().getFullYear();
+        $('.copyright').find('a.border-bottom').first().each(function () {
+            var originalText = $(this).parent().html();
+            if (originalText) {
+                $(this).parent().html(originalText.replace('&copy;', '&copy; ' + currentYear + ' '));
+            }
+        });
+    });
+
+
+    // Active Nav Link Based on Current Page
+    $(document).ready(function () {
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        $('.navbar-nav .nav-link').each(function () {
+            var linkHref = $(this).attr('href');
+            if (linkHref === currentPage) {
+                $('.navbar-nav .nav-link').removeClass('active');
+                $(this).addClass('active');
+            }
+        });
+    });
+
     
 })(jQuery);
 
